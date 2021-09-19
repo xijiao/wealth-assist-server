@@ -31,3 +31,13 @@ spec:
       containers:
       - name: server
         image: server
+        env:
+          # Use secret in real usage
+        - name: MYSQL_HOST
+          value: mysql
+        - name: MYSQL_USER
+          value: wealthuser
+        - name: MYSQL_PASSWORD
+          value: wealthpass
+        - name: MYSQL_DATABASE
+          value: wealth
