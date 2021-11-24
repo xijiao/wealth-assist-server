@@ -1,5 +1,6 @@
 package info.derekshi.wealthassist.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
@@ -13,7 +14,12 @@ public class AccountingEntry {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private Long userId;
-  private Double amount;
+  private String currency;
+  private BigDecimal amount;
+  private String category;
+  private String note;
+  private String accountIn;
+  private String accountOut;
   private Timestamp occurDate;
   private Timestamp createDate;
   private Timestamp modifyDate;
@@ -35,12 +41,52 @@ public class AccountingEntry {
     this.userId = userId;
   }
 
-  public Double getAmount() {
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  public BigDecimal getAmount() {
     return amount;
   }
 
-  public void setAmount(Double amount) {
+  public void setAmount(BigDecimal amount) {
     this.amount = amount;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
+  public String getAccountIn() {
+    return accountIn;
+  }
+
+  public void setAccountIn(String accountIn) {
+    this.accountIn = accountIn;
+  }
+
+  public String getAccountOut() {
+    return accountOut;
+  }
+
+  public void setAccountOut(String accountOut) {
+    this.accountOut = accountOut;
   }
 
   public Timestamp getOccurDate() {
@@ -73,11 +119,5 @@ public class AccountingEntry {
 
   public void setRevision(int revision) {
     this.revision = revision;
-  }
-
-  @Override
-  public String toString() {
-    return "AccountingEntry [amount=" + amount + ", createDate=" + createDate + ", id=" + id + ", modifyDate="
-        + modifyDate + ", occurDate=" + occurDate + ", revision=" + revision + ", userId=" + userId + "]";
   }
 }
